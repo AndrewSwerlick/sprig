@@ -7,6 +7,5 @@ module Sprig
     autoload :GoogleSpreadsheetJson, 'sprig/parser/google_spreadsheet_json'
     autoload :Fixtures,              'sprig/parser/fixtures'
     autoload :Hash,                  'sprig/parser/hash'
-
   end
 end
