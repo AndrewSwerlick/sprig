@@ -22,4 +22,15 @@ describe Sprig::Seed::Record do
       subject.existing?.should == false
     end
   end
+
+  describe ".save" do
+    describe "when we leave out a belongs_to dependency" do
+      let(:subject){ described_class.new(Article, Sprig::Seed::AttributeCollection.new({body: "New body", user: nil})) }
+      let(:result) { subject.save }
+
+      it "sucessfullly saves the record" do
+        result.should == true
+      end
+    end
+  end
 end

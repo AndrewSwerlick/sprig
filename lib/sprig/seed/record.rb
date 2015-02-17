@@ -35,7 +35,7 @@ module Sprig
           value = attribute.value
 
           relation = orm_record.class.reflect_on_all_associations.find{|a| a.name.to_s == attribute.name}
-          if relation
+          if relation && value
             value = SprigRecordStore.instance.get(relation.klass, attribute.value)
           end
 
