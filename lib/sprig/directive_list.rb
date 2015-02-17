@@ -11,15 +11,15 @@ module Sprig
       end
     end
 
-    private
-
-    attr_reader :definitions
-
     def directives
       @directives ||= definitions.map do |definition|
         Directive.new(definition)
       end
     end
+
+    private
+
+    attr_reader :definitions
 
     def seed_factories
       directives.map do |directive|
