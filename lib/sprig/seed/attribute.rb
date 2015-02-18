@@ -75,7 +75,11 @@ module Sprig
 
       def compute_string_value(string)
         matches = computed_value_regex.match(string)
-        eval(matches[1])
+        if matches[1].starts_with? "%"
+          "<%#{matches[1]}%>"
+        else
+          eval(matches[1])
+        end
       end
 
     end
