@@ -31,7 +31,7 @@ module Sprig
       end
 
       def save_to_store
-        SprigRecordStore.instance.save(record.orm_record, sprig_id)
+        SprigRecordStore.instance.save(record.orm_record, sprig_id, klass)
       end
 
       def success_log_text

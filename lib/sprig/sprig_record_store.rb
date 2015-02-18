@@ -6,8 +6,9 @@ module Sprig
 
     class RecordNotFoundError < StandardError;end
 
-    def save(record, sprig_id)
-      records_of_klass(record.class)[sprig_id.to_s] = record
+    def save(record, sprig_id, klass=nil)
+      klass = record.class unless klass
+      records_of_klass(klass)[sprig_id.to_s] = record
     end
 
     def get(klass, sprig_id)
