@@ -87,6 +87,12 @@ module Sprig
           "#{table_name}.yml, #{table_name}.json, or #{table_name}.csv within "\
           "#{seed_directory}, or define a custom datasource."
       end
+
+      private
+
+      def seed_directory
+        Sprig.configuration.directory        
+      end
     end
 
 
