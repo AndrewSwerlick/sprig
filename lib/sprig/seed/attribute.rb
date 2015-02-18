@@ -2,7 +2,7 @@ module Sprig
   module Seed
     class Attribute
       include Sprig::Helpers
-      
+
       attr_reader :name, :raw_value, :value
 
       def initialize(name, raw_value)
@@ -39,7 +39,7 @@ module Sprig
       end
 
       def find_dependencies_within_string(string)
-        matches = string.scan(/(sprig_record\(([A-Z][^,]*), ([\d]*)\))+/)
+        matches = string.scan(/(sprig_record\(([A-Z][^,]*), "?(.*?)"?\))+/)
         matches.map { |match| Dependency.for(match[1], match[2]) }
       end
 
