@@ -1,6 +1,8 @@
 module Sprig
   module Seed
     class Attribute
+      include Sprig::Helpers
+      
       attr_reader :name, :raw_value, :value
 
       def initialize(name, raw_value)
