@@ -76,12 +76,7 @@ module Sprig
       end
 
       def compute_string_value(string)
-        matches = computed_value_regex.match(string)
-        if matches[1].starts_with? "%"
-          "<%#{matches[1][1..-1]}%>"
-        else
-          eval(matches[1])
-        end
+        ERB.new(string).result binding        
       end
 
     end
