@@ -76,7 +76,13 @@ module Sprig
       end
 
       def compute_string_value(string)
-        ERB.new(string).result binding        
+        pt = /sprig_file/
+        if string =~ pt
+          matches = computed_value_regex.match(string)
+          eval(matches[1])
+        else
+          ERB.new(string).result binding
+        end
       end
 
     end
